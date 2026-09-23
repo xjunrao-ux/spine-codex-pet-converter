@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+release/
+package/
+SpineCodexConverter.exe
+desktop-app/engine-bundle.js
+*.log
+.env
+.env.*
+!.env.example
+
+# Local test models and generated converter output are not redistributable.
+source/*
+!source/README.md

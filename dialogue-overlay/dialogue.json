@@ -1,0 +1,25 @@
+{
+  "speaker": "阿米娅",
+  "intervalMinSeconds": 45,
+  "intervalMaxSeconds": 90,
+  "displaySeconds": 7,
+  "startupDelaySeconds": 3,
+  "position": {
+    "horizontal": "right",
+    "vertical": "bottom",
+    "offsetX": 34,
+    "offsetY": 245
+  },
+  "lines": [
+    "博士，工作的时候也请记得休息。",
+    "今天的任务，要一件一件完成。",
+    "需要我帮你整理一下思路吗？",
+    "别担心，我们还有时间。",
+    "专注一点，很快就能解决。",
+    "喝口水吧，博士。",
+    "我会一直在这里陪着你。",
+    "新的问题出现了吗？让我们一起看看。",
+    "完成得很好，博士。",
+    "累了的话，就稍微休息一下吧。"
+  ]
+}

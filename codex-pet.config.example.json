@@ -1,0 +1,17 @@
+{
+  "id": "my-pet",
+  "displayName": "My Pet",
+  "description": "Converted from a Spine skeleton.",
+  "padding": 5,
+  "states": {
+    "idle": { "animation": "Idle" },
+    "running-right": { "animation": "Run" },
+    "running-left": { "animation": "Run", "flip": true },
+    "waving": { "animation": "Wave", "loop": false },
+    "jumping": { "animation": "Jump", "loop": false },
+    "failed": { "animation": "Sleep", "loop": false },
+    "waiting": { "animation": "Sit" },
+    "running": { "animation": "Run" },
+    "review": { "animation": "Think" }
+  }
+}

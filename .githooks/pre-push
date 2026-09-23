@@ -1,0 +1,59 @@
+#!/bin/sh
+
+remote_name="$1"
+
+is_semver_tag() {
+  case "$1" in
+    v*) version=${1#v} ;;
+    *) return 1 ;;
+  esac
+
+  old_ifs=$IFS
+  IFS=.
+  set -- $version
+  IFS=$old_ifs
+  [ "$#" -eq 3 ] || return 1
+
+  for part in "$@"; do
+    case "$part" in
+      ''|*[!0-9]*) return 1 ;;
+    esac
+  done
+  return 0
+}
+
+# The public remote accepts only the stable branch and semantic-version tags.
+if [ "$remote_name" != "public" ]; then
+  exit 0
+fi
+
+while read local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in
+    refs/heads/main)
+      release_tag_found=false
+      for tag in $(git tag --points-at "$local_sha"); do
+        if is_semver_tag "$tag"; then
+          release_tag_found=true
+          break
+        fi
+      done
+      if [ "$release_tag_found" != true ]; then
+        echo "Rejected: public/main must point at a vX.Y.Z tagged release commit." >&2
+        exit 1
+      fi
+      ;;
+    refs/tags/*)
+      tag_name=${remote_ref#refs/tags/}
+      if ! is_semver_tag "$tag_name"; then
+        echo "Rejected: public tags must use the exact vX.Y.Z format." >&2
+        exit 1
+      fi
+      ;;
+    *)
+      echo "Rejected: only main and vX.Y.Z tags may be pushed to remote 'public'." >&2
+      exit 1
+      ;;
+  esac
+done
+
+exit 0

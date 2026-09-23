@@ -1,0 +1,67 @@
+:root {
+  font-family: "Microsoft YaHei UI", "Segoe UI", sans-serif;
+  color: #202738;
+  background: #f3f5f9;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 920px; background: radial-gradient(circle at 90% 0%, #e8efff 0, transparent 32%), #f3f5f9; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell { max-width: 1320px; margin: 0 auto; padding: 22px 26px 26px; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+h1 { margin: 0 0 6px; font-size: 27px; letter-spacing: -.5px; }
+header p { margin: 0; color: #6d7587; font-size: 14px; }
+.engine-badge { padding: 9px 13px; border: 1px solid #cfe7da; border-radius: 999px; color: #237a4a; background: #f2fbf6; font-size: 13px; }
+.engine-badge span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2fb16b; margin-right: 7px; }
+
+.workspace { display: grid; grid-template-columns: minmax(590px, 1.35fr) minmax(330px, .8fr); gap: 16px; }
+.right-column { display: grid; grid-template-rows: minmax(380px, 1fr) auto; gap: 16px; }
+.card { background: rgba(255,255,255,.97); border: 1px solid #dfe4ee; border-radius: 13px; box-shadow: 0 8px 24px rgba(39,53,86,.06); }
+.settings-card { padding: 20px; }
+.card h2 { margin: 0; font-size: 15px; }
+.settings-card > h2 { margin-bottom: 15px; }
+
+.field { display: block; margin-bottom: 13px; }
+.field > span { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; }
+.field small { color: #7b8497; font-weight: 400; margin-left: 7px; }
+input { width: 100%; height: 38px; padding: 0 11px; border: 1px solid #ccd3df; border-radius: 7px; outline: none; background: #fff; color: #242b3a; }
+input:focus { border-color: #4d79ed; box-shadow: 0 0 0 3px rgba(77,121,237,.12); }
+.path-row { display: grid; grid-template-columns: 1fr 84px; gap: 8px; }
+.path-row button, .secondary { border: 1px solid #ccd3df; background: #fff; color: #303849; border-radius: 7px; }
+.path-row button:hover, .secondary:hover { background: #f6f8fc; }
+.two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.scale-row { display: grid; grid-template-columns: 1fr 70px 18px; gap: 7px; align-items: center; }
+.scale-row input[type="range"] { padding: 0; box-shadow: none; border: 0; accent-color: #3569e8; }
+.scale-row b { color: #667085; }
+
+.help-box { padding: 11px 13px; border-radius: 8px; background: #f3f6fd; color: #657086; font-size: 12px; line-height: 1.65; }
+.help-box strong { color: #34435f; }
+.actions { display: grid; grid-template-columns: 130px 1fr; gap: 9px; margin-top: 16px; }
+.actions button { height: 43px; border-radius: 8px; font-weight: 700; }
+.primary { border: 0; background: linear-gradient(135deg, #376be9, #2754cf); color: #fff; box-shadow: 0 5px 14px rgba(42,87,211,.22); }
+.primary:hover { filter: brightness(1.04); }
+.primary:disabled, .secondary:disabled { opacity: .55; cursor: default; }
+
+.preview-card { padding: 15px; min-height: 390px; }
+.card-title, .progress-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.link-button { border: 0; padding: 2px 0; color: #3769df; background: transparent; font-size: 12px; }
+.preview-stage { position: relative; height: calc(100% - 30px); min-height: 330px; display: grid; place-items: center; overflow: hidden; border: 1px solid #d9dfe9; border-radius: 8px; background-color: #e7ebf2; background-image: linear-gradient(45deg,#dfe4ec 25%,transparent 25%),linear-gradient(-45deg,#dfe4ec 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#dfe4ec 75%),linear-gradient(-45deg,transparent 75%,#dfe4ec 75%); background-size: 20px 20px; background-position: 0 0,0 10px,10px -10px,-10px 0; }
+.preview-stage img { display: none; width: 100%; height: 100%; object-fit: contain; }
+#preview-empty { padding: 20px; color: #7f899b; text-align: center; font-size: 13px; }
+
+.progress-card { padding: 15px; }
+.progress-heading strong { color: #315fd4; font-size: 15px; }
+progress { width: 100%; height: 12px; accent-color: #376be9; }
+#progress-message { min-height: 20px; margin: 8px 0 0; color: #6f788a; font-size: 12px; }
+
+.log-card { margin-top: 16px; padding: 15px; }
+.log-card pre { height: 150px; margin: 0; padding: 12px; overflow: auto; border-radius: 8px; background: #1d2330; color: #dfe7f5; font: 12px/1.6 Consolas, monospace; white-space: pre-wrap; }
+
+@media (max-width: 1050px) {
+  .workspace { grid-template-columns: 1fr; }
+  .right-column { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .preview-card { min-height: 330px; }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "spine-codex-pet-converter-full",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.cjs"
+}

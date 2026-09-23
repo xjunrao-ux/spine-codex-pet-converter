@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spine → Codex 桌宠转换器</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <div>
+          <h1>Spine → Codex 桌宠转换器</h1>
+          <p>内置动画渲染器，不依赖系统 Edge、Chrome、Node.js 或 pnpm</p>
+        </div>
+        <div class="engine-badge"><span></span> 内置渲染引擎</div>
+      </header>
+
+      <section class="workspace">
+        <div class="card settings-card">
+          <h2>转换设置</h2>
+
+          <label class="field wide">
+            <span>素材文件夹 <small>包含同名 .skel、.atlas 和纹理图片</small></span>
+            <div class="path-row"><input id="input" /><button id="choose-input">浏览…</button></div>
+          </label>
+
+          <label class="field wide">
+            <span>输出文件夹 <small>生成 WebP、pet.json、预览图和报告</small></span>
+            <div class="path-row"><input id="output" /><button id="choose-output">浏览…</button></div>
+          </label>
+
+          <div class="two-columns">
+            <label class="field">
+              <span>人物大小比例 <small>所有状态统一缩放</small></span>
+              <div class="scale-row">
+                <input id="scale-range" type="range" min="25" max="200" step="5" value="100" />
+                <input id="scale" type="number" min="25" max="200" step="5" value="100" />
+                <b>%</b>
+              </div>
+            </label>
+            <label class="field">
+              <span>骨骼基名 <small>仅在文件夹有多个 .skel 时填写</small></span>
+              <input id="base" placeholder="例如 build_char_002_amiya" />
+            </label>
+          </div>
+
+          <div class="two-columns">
+            <label class="field">
+              <span>宠物 ID <small>内部唯一标识，建议英文</small></span>
+              <input id="pet-id" placeholder="例如 amiya" />
+            </label>
+            <label class="field">
+              <span>显示名字 <small>宠物选择器里看到的名称</small></span>
+              <input id="display-name" placeholder="例如 阿米娅" />
+            </label>
+          </div>
+
+          <label class="field wide">
+            <span>动画映射配置 <small>可选；自动识别不正确时，用 JSON 指定每个状态对应哪个动画</small></span>
+            <div class="path-row"><input id="config" placeholder="留空时自动识别" /><button id="choose-config">选择…</button></div>
+          </label>
+
+          <div class="help-box">
+            <strong>一般只需要选择素材和大小。</strong>
+            单个 .skel 会自动识别骨骼基名；ID 和显示名字留空时会从文件名生成；映射配置留空时会按 Idle、Move、Interact、Sleep、Sit 等名称自动匹配。
+          </div>
+
+          <div class="actions">
+            <button id="inspect" class="secondary">检查动画</button>
+            <button id="convert" class="primary">开始转换</button>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="card preview-card">
+            <div class="card-title"><h2>输出预览</h2><button id="open-output" class="link-button">打开目录</button></div>
+            <div class="preview-stage"><img id="preview" alt="转换后的精灵表预览" /><div id="preview-empty">转换完成后在这里显示预览</div></div>
+          </div>
+
+          <div class="card progress-card">
+            <div class="progress-heading"><h2>处理进度</h2><strong id="percent">0%</strong></div>
+            <progress id="progress" max="100" value="0"></progress>
+            <p id="progress-message">等待开始</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card log-card">
+        <div class="card-title"><h2>动画映射与运行日志</h2><button id="clear-log" class="link-button">清空</button></div>
+        <pre id="log">选择素材文件夹后，可先点击“检查动画”。</pre>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

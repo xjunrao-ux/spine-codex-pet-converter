@@ -1,0 +1,25 @@
+{
+  "name": "spine-codex-pet-converter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Convert Spine 3.8 character assets into Codex desktop-pet sprite sheets.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "inspect": "node scripts/convert-spine.mjs --input source --config amiya.converter.json --inspect",
+    "build": "node scripts/convert-spine.mjs --input source --output dist --config amiya.converter.json",
+    "build:gui": "powershell -ExecutionPolicy Bypass -File ./build-gui.ps1",
+    "build:desktop": "node desktop/build-desktop.mjs",
+    "package:desktop": "powershell -ExecutionPolicy Bypass -File ./package-desktop.ps1",
+    "convert": "node scripts/convert-spine.mjs",
+    "validate": "node scripts/validate.mjs"
+  },
+  "dependencies": {
+    "esbuild": "0.25.9",
+    "pixi-spine": "4.0.6",
+    "pixi.js": "7.4.3",
+    "puppeteer-core": "24.19.0",
+    "sharp": "0.34.3"
+  },
+  "packageManager": "pnpm@11.19.0"
+}

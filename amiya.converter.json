@@ -1,0 +1,46 @@
+{
+  "id": "amiya",
+  "displayName": "Amiya",
+  "description": "A local Amiya desktop pet rendered from the supplied Spine 3.8 model.",
+  "padding": 5,
+  "states": {
+    "idle": {
+      "animation": "Relax"
+    },
+    "running-right": {
+      "animation": "Move"
+    },
+    "running-left": {
+      "animation": "Move",
+      "flip": true
+    },
+    "waving": {
+      "animation": "Interact",
+      "loop": false
+    },
+    "jumping": {
+      "animation": "Relax",
+      "loop": false,
+      "scale": 0.9,
+      "motion": {
+        "type": "jump",
+        "height": 12
+      }
+    },
+    "failed": {
+      "animation": "Sleep",
+      "loop": false
+    },
+    "waiting": {
+      "animation": "Sit",
+      "range": [0, 0.5]
+    },
+    "running": {
+      "animation": "Move"
+    },
+    "review": {
+      "animation": "Sit",
+      "range": [0.5, 1]
+    }
+  }
+}
