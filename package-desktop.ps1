@@ -6,6 +6,9 @@ $releaseRoot = [System.IO.Path]::GetFullPath((Join-Path $projectRoot 'release'))
 $portableRoot = [System.IO.Path]::GetFullPath((Join-Path $releaseRoot 'SpineCodexConverter-Full'))
 $appTarget = Join-Path $portableRoot 'resources\app'
 $zipPath = Join-Path $releaseRoot 'SpineCodexConverter-Full.zip'
+$iconPath = Join-Path $projectRoot 'desktop-app\assets\app-icon.ico'
+$iconBuilder = Join-Path $projectRoot 'scripts\build-icon.mjs'
+$iconWriter = Join-Path $projectRoot 'scripts\Set-ExeIcon.ps1'
 
 if (-not $portableRoot.StartsWith($releaseRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
     throw 'Portable output escaped the release directory.'
@@ -13,6 +16,9 @@ if (-not $portableRoot.StartsWith($releaseRoot, [System.StringComparison]::Ordin
 if (-not (Test-Path -LiteralPath (Join-Path $electronDist 'electron.exe'))) {
     throw 'Electron runtime was not found.'
 }
+
+& node $iconBuilder
+if ($LASTEXITCODE -ne 0) { throw 'Icon generation failed.' }
 
 & node (Join-Path $projectRoot 'desktop\build-desktop.mjs')
 if ($LASTEXITCODE -ne 0) { throw 'Desktop renderer build failed.' }
@@ -26,6 +32,7 @@ Copy-Item -Path (Join-Path $electronDist '*') -Destination $portableRoot -Recurs
 $electronExe = Join-Path $portableRoot 'electron.exe'
 $productExe = Join-Path $portableRoot 'SpineCodexConverter.exe'
 Move-Item -LiteralPath $electronExe -Destination $productExe -Force
+& $iconWriter -ExecutablePath $productExe -IconPath $iconPath
 
 New-Item -ItemType Directory -Path $appTarget -Force | Out-Null
 Copy-Item -Path (Join-Path $projectRoot 'desktop-app\*') -Destination $appTarget -Recurse -Force

@@ -5,6 +5,7 @@ const http = require("node:http");
 const path = require("node:path");
 
 const APP_ROOT = __dirname;
+const APP_ICON = path.join(APP_ROOT, "assets", "app-icon.png");
 const STATE_SPECS = [
   { name: "idle", frames: 6, aliases: ["idle", "relax", "stand", "default"] },
   { name: "running-right", frames: 8, aliases: ["move", "run", "walk", "running"] },
@@ -89,6 +90,7 @@ function createMainWindow(show = true) {
     show,
     backgroundColor: "#f4f6fa",
     title: "Spine → Codex 桌宠转换器",
+    icon: APP_ICON,
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(APP_ROOT, "preload.cjs"),
@@ -387,6 +389,8 @@ function argumentValue(name) {
   const index = process.argv.indexOf(name);
   return index >= 0 ? process.argv[index + 1] : undefined;
 }
+
+app.setAppUserModelId("com.xjunrao.spine-codex-pet-converter");
 
 app.whenReady().then(async () => {
   await startServer();

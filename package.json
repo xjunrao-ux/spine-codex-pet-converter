@@ -8,6 +8,7 @@
   "scripts": {
     "inspect": "node scripts/convert-spine.mjs --input source --config amiya.converter.json --inspect",
     "build": "node scripts/convert-spine.mjs --input source --output dist --config amiya.converter.json",
+    "build:icon": "node scripts/build-icon.mjs",
     "build:gui": "powershell -ExecutionPolicy Bypass -File ./build-gui.ps1",
     "build:desktop": "node desktop/build-desktop.mjs",
     "package:desktop": "powershell -ExecutionPolicy Bypass -File ./package-desktop.ps1",

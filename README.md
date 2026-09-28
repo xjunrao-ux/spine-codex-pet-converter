@@ -83,3 +83,5 @@ powershell -ExecutionPolicy Bypass -File .\package-desktop.ps1
 仓库不包含测试角色模型和转换结果。你只能转换、使用和分发自己拥有相应权利的素材。
 
 当前代码未授予开源再许可，`package.json` 标记为 `UNLICENSED`。如果以后希望其他人修改或分发源码，应先明确选择 MIT、Apache-2.0 等许可证。
+
+本项目不是 OpenAI 官方产品；图标中的 GPT/OpenAI 结形标识仅用于表达与 Codex 桌宠格式的兼容目标。

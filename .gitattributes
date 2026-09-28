@@ -5,6 +5,7 @@
 .githooks/* text eol=lf
 *.yml text eol=lf
 *.png binary
+*.ico binary
 *.webp binary
 *.zip binary
 *.exe binary
