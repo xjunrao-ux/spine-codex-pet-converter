@@ -13,7 +13,7 @@ if "%~1"=="" (
 set "INPUT_DIR=%~1"
 set "OUTPUT_DIR=%INPUT_DIR%\codex-pet-output"
 
-node "%~dp0scripts\convert-spine.mjs" --input "%INPUT_DIR%" --output "%OUTPUT_DIR%"
+node "%~dp0..\..\scripts\convert-spine.mjs" --input "%INPUT_DIR%" --output "%OUTPUT_DIR%"
 if errorlevel 1 (
   echo.
   echo Conversion failed. See the message above.

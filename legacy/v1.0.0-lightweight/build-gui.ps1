@@ -1,8 +1,9 @@
 $ErrorActionPreference = 'Stop'
 
-$projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-$source = Join-Path $projectRoot 'gui\SpineCodexConverterGui.cs'
-$output = Join-Path $projectRoot 'SpineCodexConverter.exe'
+$archiveRoot = [System.IO.Path]::GetFullPath((Split-Path -Parent $MyInvocation.MyCommand.Path))
+$projectRoot = [System.IO.Path]::GetFullPath((Join-Path $archiveRoot '..\..'))
+$source = Join-Path $archiveRoot 'gui\SpineCodexConverterGui.cs'
+$output = Join-Path $archiveRoot 'SpineCodexConverter.exe'
 $icon = Join-Path $projectRoot 'desktop-app\assets\app-icon.ico'
 $iconBuilder = Join-Path $projectRoot 'scripts\build-icon.mjs'
 $compilerCandidates = @(

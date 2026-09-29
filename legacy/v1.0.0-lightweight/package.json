@@ -1,0 +1,20 @@
+{
+  "name": "spine-codex-pet-converter-lightweight",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Historical lightweight launcher for Spine Codex Pet Converter.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "build:gui": "powershell -ExecutionPolicy Bypass -File ./build-gui.ps1",
+    "convert": "node scripts/convert-spine.mjs"
+  },
+  "dependencies": {
+    "esbuild": "0.25.9",
+    "pixi-spine": "4.0.6",
+    "pixi.js": "7.4.3",
+    "puppeteer-core": "24.19.0",
+    "sharp": "0.34.3"
+  },
+  "packageManager": "pnpm@11.19.0"
+}

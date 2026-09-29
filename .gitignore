@@ -12,4 +12,3 @@ desktop-app/engine-bundle.js
 
 # Local test models and generated converter output are not redistributable.
 source/*
-!source/README.md
