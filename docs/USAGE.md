@@ -4,10 +4,10 @@
 
 从 GitHub Releases 下载 `SpineCodexConverter-Full-v1.1.0.zip`，完整解压后运行 `SpineCodexConverter.exe`。不要直接在压缩包预览窗口中启动程序，也不要下载 GitHub 自动生成的 `Source code.zip`。
 
-模型目录至少需要包含相互匹配的 `.skel`、`.atlas` 和贴图文件。仓库不附带游戏模型；素材入口与版权注意事项见项目 [README](../README.md#素材从哪里获取)。
+模型目录至少需要包含相互匹配的 `.skel`、`.atlas` 和贴图文件。仓库不附带游戏模型；素材入口与版权注意事项见项目 [README](../README.md#可参考的素材来源)。
 
 1. 点击“选择素材文件夹”，选择包含 `.skel`、`.atlas` 和贴图的目录。
-2. 选择输出目录；未指定时使用素材目录下的 `codex-pet-output`。
+2. 选择输出目录；未指定时使用素材目录下的 `<宠物ID>-codex-pet`。
 3. 点击“检查动画”，确认自动识别的动作。
 4. 必要时选择动画映射 JSON、填写骨骼基名、宠物 ID 和显示名字。
 5. 点击“开始转换”。进度区域会显示当前动画、帧数和总体百分比。
@@ -51,22 +51,9 @@ Copy-Item -LiteralPath (Join-Path $output "spritesheet.webp") -Destination $targ
 
 然后在 Codex 中打开 **Settings → Pets**，点击 **Refresh**，选择新桌宠；也可在支持的终端界面中使用 `/pet`。自定义桌宠是本地文件，不会自动同步到其他设备。
 
-## 命令行
+## 历史命令行入口
 
-```powershell
-node scripts/convert-spine.mjs --input "D:\model"
-```
-
-常用参数：
-
-```text
---output <folder>   指定输出目录
---config <json>     指定动画映射配置
---base <name>       指定骨骼基名
---id <slug>         指定宠物 ID
---name <text>       指定显示名称
---inspect           只检查动画，不生成文件
-```
+旧命令行和轻量启动器不再随当前源码维护。历史用户请参阅 [归档索引](ARCHIVE.md) 与 v1.0.0 Release；当前推荐使用完整桌面界面完成转换。
 
 ## 常见问题
 

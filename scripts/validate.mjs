@@ -7,9 +7,13 @@ import sharp from "sharp";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dirIndex = process.argv.indexOf("--dir");
+if (dirIndex >= 0 && !process.argv[dirIndex + 1]) {
+  console.error("Usage: pnpm validate --dir <converter-output-folder>");
+  process.exit(1);
+}
 const outputDir = dirIndex >= 0
   ? path.resolve(process.argv[dirIndex + 1])
-  : path.join(projectDir, "dist");
+  : path.join(projectDir, "_local", "output");
 const spritesheet = path.join(outputDir, "spritesheet.webp");
 const manifestPath = path.join(outputDir, "pet.json");
 const metadata = await sharp(spritesheet).metadata();

@@ -5,8 +5,8 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 await build({
-  entryPoints: [path.join(root, "desktop", "engine-entry.js")],
-  outfile: path.join(root, "desktop-app", "engine-bundle.js"),
+  entryPoints: [path.join(root, "src", "engine", "engine-entry.js")],
+  outfile: path.join(root, "src", "app", "engine-bundle.js"),
   bundle: true,
   platform: "browser",
   format: "iife",

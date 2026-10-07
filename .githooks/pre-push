@@ -30,17 +30,8 @@ fi
 while read local_ref local_sha remote_ref remote_sha; do
   case "$remote_ref" in
     refs/heads/main)
-      release_tag_found=false
-      for tag in $(git tag --points-at "$local_sha"); do
-        if is_semver_tag "$tag"; then
-          release_tag_found=true
-          break
-        fi
-      done
-      if [ "$release_tag_found" != true ]; then
-        echo "Rejected: public/main must point at a vX.Y.Z tagged release commit." >&2
-        exit 1
-      fi
+      # A normal code/documentation commit is not a product release.
+      # Release identity is carried by immutable vX.Y.Z tags.
       ;;
     refs/tags/*)
       tag_name=${remote_ref#refs/tags/}

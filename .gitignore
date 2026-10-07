@@ -1,14 +1,12 @@
 node_modules/
-build/
-dist/
-release/
-package/
-SpineCodexConverter.exe
-desktop-app/engine-bundle.js
+/_local/
+/src/app/engine-bundle.js
+*.exe
 *.log
 .env
 .env.*
 !.env.example
 
-# Local test models and generated converter output are not redistributable.
-source/*
+# Models, caches, outputs and historical packages live in _local/.
+*.skel
+*.atlas

@@ -1,7 +1,7 @@
 # Spine → Codex 桌宠转换器
 
 <p align="center">
-  <img src="desktop-app/assets/app-icon.png" width="128" alt="Spine Codex Pet Converter 图标">
+  <img src="src/app/assets/app-icon.png" width="128" alt="Spine Codex Pet Converter 图标">
 </p>
 
 把 Spine 3.8 的 `.skel + .atlas + 贴图` 转换成可安装到 Codex 的自定义桌宠包。当前正式版本为 **v1.1.0**，支持 Windows 10/11。
@@ -10,7 +10,7 @@
 
 普通用户不需要 Node.js，也不需要下载源码：
 
-1. 打开 [Releases 最新版本](../../releases/latest)。
+1. 打开 [Releases 最新版本](https://github.com/xjunrao-ux/spine-codex-pet-converter/releases/latest)。
 2. 下载 `SpineCodexConverter-Full-v1.1.0.zip`。
 3. 完整解压 ZIP，双击 `SpineCodexConverter.exe`。
 4. 选择 Spine 素材文件夹，先点击“检查动画”，再点击“开始转换”。
@@ -104,26 +104,33 @@ Copy-Item "$source\spritesheet.webp" "$target\spritesheet.webp" -Force
 | 版本 | 状态 | 说明 |
 | --- | --- | --- |
 | v1.1.0 | 当前正式版 | 完整桌面版、统一应用图标、仓库结构整理和完整安装说明 |
-| v1.0.0 | 历史轻量版 | 依赖 Node.js 与系统浏览器，源码归档在 [`legacy/v1.0.0-lightweight`](legacy/v1.0.0-lightweight/) |
+| v1.0.0 | 历史轻量版 | 依赖 Node.js 与系统浏览器，通过 [v1.0.0 标签](https://github.com/xjunrao-ux/spine-codex-pet-converter/tree/v1.0.0) 查看历史源码 |
 
-版本变化见 [CHANGELOG](CHANGELOG.md)，后续方向见 [ROADMAP](ROADMAP.md)。
+版本变化见 [CHANGELOG](CHANGELOG.md)，待办与版本前瞻见 [任务清单](docs/TASKS.md)。`main` 中已验证的维护提交与正式发行版分开记录，下载软件以 Release 为准。
 
 ## 从源码构建
 
 ```powershell
-corepack pnpm install --frozen-lockfile
-corepack pnpm build:desktop
-corepack pnpm package:desktop
+pnpm install --frozen-lockfile
+pnpm check
+pnpm build:desktop
+pnpm start
 ```
 
-命令行转换：
+构建环境为 Windows、Node.js 24、pnpm 11.19.0。Electron 版本已在本仓库锁定，不再依赖其他项目安装的运行库。
 
-```powershell
-node scripts/convert-spine.mjs --input "D:\path\to\model-folder"
-node scripts/convert-spine.mjs --input "D:\path\to\model-folder" --inspect
+```text
+src/app/      Electron 主进程、界面、IPC 与应用图标
+src/engine/   Spine 精灵表渲染引擎
+scripts/      检查、构建、打包与结果校验
+examples/     通用动画映射模板
+docs/         使用、开发、任务、架构和版本说明
+_local/       本地素材、输出、缓存、发布包与归档（不进入 Git）
 ```
 
-配置样例位于 [`examples/`](examples/)。维护者流程见 [发布说明](docs/RELEASING.md)，Markdown 插图方法见 [贡献与文档说明](docs/CONTRIBUTING.md)。
+当前仅维护完整桌面版；旧命令行、WinForms 启动器和对话实验已从当前源码移除，恢复方法见 [归档索引](docs/ARCHIVE.md)。
+
+配置样例位于 [`examples/`](examples/)。开发流程见 [DEVELOPMENT](docs/DEVELOPMENT.md)，打包发布见 [RELEASING](docs/RELEASING.md)，系统结构见 [ARCHITECTURE](docs/ARCHITECTURE.md)。Markdown 插图方法见 [贡献与文档说明](docs/CONTRIBUTING.md)。问题与建议请通过 [GitHub Issues](https://github.com/xjunrao-ux/spine-codex-pet-converter/issues) 反馈。
 
 ## 版权与许可
 

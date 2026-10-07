@@ -18,7 +18,7 @@
 5. 将 `pet.json` 和 `spritesheet.webp` 放入 `C:\Users\你的用户名\.codex\pets\桌宠ID\`。
 6. 在 Codex 的 **Settings → Pets** 中点击 **Refresh** 并选择桌宠。
 
-详细字段、命令行参数和故障排查见 [`USAGE.md`](USAGE.md)。
+详细字段和故障排查见 [`USAGE.md`](USAGE.md)。此文件记录 v1.1.0 当时的发布内容；后续源码整理见 CHANGELOG 的“未发布”部分。
 
 ## 主要变化
 

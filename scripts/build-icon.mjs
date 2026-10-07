@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const inputPath = path.join(projectRoot, "desktop-app", "assets", "app-icon.png");
-const outputPath = path.join(projectRoot, "desktop-app", "assets", "app-icon.ico");
+const inputPath = path.join(projectRoot, "src", "app", "assets", "app-icon.png");
+const outputPath = path.join(projectRoot, "src", "app", "assets", "app-icon.ico");
 const sizes = [16, 20, 24, 32, 40, 48, 64, 128, 256];
 
 const images = await Promise.all(sizes.map((size) => sharp(inputPath)
