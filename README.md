@@ -81,7 +81,9 @@ Copy-Item "$source\spritesheet.webp" "$target\spritesheet.webp" -Force
 
 *codex宠物保存路径，其中amiya为角色文件夹*
 
+
 <img src="docs\images\picture2.png" title="" alt="保存文件" data-align="center">
+
 
 
 
