@@ -77,7 +77,7 @@ Copy-Item "$source\spritesheet.webp" "$target\spritesheet.webp" -Force
 
 
 
-![路径文件](docs\images\picture1.png)
+<img src="docs\images\picture1.png" title="" alt="保存路径" data-align="center">
 
 *codex宠物保存路径，其中amiya为角色文件夹*
 
@@ -87,7 +87,7 @@ Copy-Item "$source\spritesheet.webp" "$target\spritesheet.webp" -Force
 
 复制完成后，在桌面应用中打开 `Settings → Pets`，点击 `Refresh` 并选择新桌宠；需要显示浮动桌宠时输入 `/pet`。自定义桌宠保存在本机，不会自动同步到网页端。更多操作见 [完整使用说明](docs/USAGE.md) 和 [OpenAI Pets 文档](https://learn.chatgpt.com/docs/pets)。
 
-![codex显示效果](docs\images\picture3.png)
+<img src="docs\images\picture3.png" title="" alt="codex显示效果" data-align="center">
 
 *codex显示效果*
 
