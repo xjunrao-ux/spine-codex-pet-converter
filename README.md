@@ -146,7 +146,7 @@ _local/       本地素材、输出、缓存、发布包与归档（不进入 Gi
 
 当前仅维护完整桌面版；旧命令行、WinForms 启动器和对话实验已从当前源码移除，恢复方法见 [归档索引](docs/ARCHIVE.md)。
 
-配置样例位于 [`examples/`](examples/)。开发流程见 [DEVELOPMENT](docs/DEVELOPMENT.md)，打包发布见 [RELEASING](docs/RELEASING.md)，系统结构见 [ARCHITECTURE](docs/ARCHITECTURE.md)。Markdown 插图方法见 [贡献与文档说明](docs/CONTRIBUTING.md)。问题与建议请通过 [GitHub Issues](https://github.com/xjunrao-ux/spine-codex-pet-converter/issues) 反馈。
+配置样例位于 [`examples/`](examples/)。开发流程见 [DEVELOPMENT](docs/DEVELOPMENT.md)，打包发布见 [RELEASING](docs/RELEASING.md)，系统结构见 [ARCHITECTURE](docs/ARCHITECTURE.md)。文档说明见 [贡献与文档说明](docs/CONTRIBUTING.md)。问题与建议请通过 [GitHub Issues](https://github.com/xjunrao-ux/spine-codex-pet-converter/issues) 反馈。
 
 ## 版权与许可
 
