@@ -36,9 +36,7 @@ character.png
 - [Spine 官方运行时与示例](https://esotericsoftware.com/spine-runtimes)：适合测试和学习；Spine Runtime 与示例受 Spine 自己的许可证约束。
 - [itch.io 的 Spine 素材分类](https://itch.io/game-assets/tag-spine)：同时包含免费和付费素材，以每个作者页面标注的授权为准。
 - [OpenGameArt 的 Spine 标签搜索](https://opengameart.org/art-search-advanced?field_art_tags_tid=spine)：不同条目的 CC0、CC BY、GPL 等许可并不相同，需要逐项核对。
-- [Ark-Models（《明日方舟》模型节选）](https://github.com/isHarryh/Ark-Models)：非官方提取项目，仅建议用于个人本地研究；角色、模型和贴图权利不因下载而转移，不要打包进自己的公开 Release。
-
-“可以下载”不等于“可以重新分发”。游戏角色、语音、立绘和动画通常仍属于游戏公司或原作者；本仓库不会附带这些素材。
+- [Ark-Models（《明日方舟》模型节选）](https://github.com/isHarryh/Ark-Models)：非官方提取项目，仅用于个人本地研究；角色、模型和贴图权利不因下载而转移。游戏角色、语音、立绘和动画通常仍属于游戏公司或原作者；本仓库不会附带这些素材。
 
 ## 转换与安装
 
@@ -53,7 +51,7 @@ codex-pet-output/
 └─ resolved-config.json
 ```
 
-真正安装时只需要 `pet.json` 和 `spritesheet.webp`。本工具当前输出 Codex 精灵格式 v1：1536 × 1872、8 列 × 9 行、每格 192 × 208，精灵表不超过 20 MiB。
+真正安装时**只需要 `pet.json` 和 `spritesheet.webp`**。本工具当前输出 Codex 精灵格式 v1：1536 × 1872、8 列 × 9 行、每格 192 × 208，精灵表不超过 20 MiB。
 
 ### Windows 手动安装
 
@@ -65,7 +63,7 @@ C:\Users\你的用户名\.codex\pets\桌宠ID\
 └─ spritesheet.webp
 ```
 
-不要写成 `C:\Uers`；Windows 的正确目录名是 `C:\Users`。也可以使用 PowerShell 自动定位当前用户目录：
+也可以使用 PowerShell 自动定位当前用户目录：
 
 ```powershell
 $petId = "my-pet"
@@ -77,11 +75,27 @@ Copy-Item "$source\pet.json" "$target\pet.json" -Force
 Copy-Item "$source\spritesheet.webp" "$target\spritesheet.webp" -Force
 ```
 
+
+
+![路径文件](docs\images\picture1.png)
+
+*codex宠物保存路径，其中amiya为角色文件夹*
+
+<img src="docs\images\picture2.png" title="" alt="保存文件" data-align="center">
+
+
+
 复制完成后，在桌面应用中打开 `Settings → Pets`，点击 `Refresh` 并选择新桌宠；需要显示浮动桌宠时输入 `/pet`。自定义桌宠保存在本机，不会自动同步到网页端。更多操作见 [完整使用说明](docs/USAGE.md) 和 [OpenAI Pets 文档](https://learn.chatgpt.com/docs/pets)。
+
+![codex显示效果](docs\images\picture3.png)
+
+*codex显示效果*
+
+
 
 ## Codex 桌宠社区
 
-以下均为非官方社区，与 OpenAI 没有隶属或背书关系：
+以下均为非官方社区，与 OpenAI 没有隶属或背书关系，也和作者无关，仅做搬运分享：
 
 - [Pets Codex](https://www.petscodex.com/)：桌宠浏览与安装社区。
 - [senyo888/codex-pets](https://github.com/senyo888/codex-pets)：带预览、校验信息和安装说明的社区目录。
@@ -101,10 +115,10 @@ Copy-Item "$source\spritesheet.webp" "$target\spritesheet.webp" -Force
 
 ## 版本
 
-| 版本 | 状态 | 说明 |
-| --- | --- | --- |
-| v1.1.0 | 当前正式版 | 完整桌面版、统一应用图标、仓库结构整理和完整安装说明 |
-| v1.0.0 | 历史轻量版 | 依赖 Node.js 与系统浏览器，通过 [v1.0.0 标签](https://github.com/xjunrao-ux/spine-codex-pet-converter/tree/v1.0.0) 查看历史源码 |
+| 版本     | 状态    | 说明                                                                                                                  |
+| ------ | ----- | ------------------------------------------------------------------------------------------------------------------- |
+| v1.1.0 | 当前正式版 | 完整桌面版、统一应用图标、仓库结构整理和完整安装说明（现行正式版）                                                                                   |
+| v1.0.0 | 历史轻量版 | 依赖 Node.js 与系统浏览器，通过 [v1.0.0 标签](https://github.com/xjunrao-ux/spine-codex-pet-converter/tree/v1.0.0) 查看历史源码（已停止开发） |
 
 版本变化见 [CHANGELOG](CHANGELOG.md)，待办与版本前瞻见 [任务清单](docs/TASKS.md)。`main` 中已验证的维护提交与正式发行版分开记录，下载软件以 Release 为准。
 
